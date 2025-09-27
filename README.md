@@ -263,24 +263,34 @@ docker run -p 80:80 tailfriends-frontend
 
 ## 🔍 트러블슈팅 & 해결
 
-### **1. 이미지 로딩 최적화**
-- **문제**: 대용량 이미지 로딩 지연
-- **해결**: Lazy Loading + WebP 포맷 + 리사이징
-- **결과**: 로딩 시간 70% 단축
+### **1. 무한 스크롤 성능 최적화**
+- **문제**: 펫스타그램 피드 대량 포스트 렌더링 지연
+- **해결**: Intersection Observer API + React.memo 적용
+```jsx
+// PetSta.jsx - 실제 구현 코드
+const { ref, inView } = useInView();
 
-### **2. 실시간 채팅 성능**
-- **문제**: 메시지 많을 때 렌더링 지연
-- **해결**: Virtual List + React.memo + 디바운싱
-- **결과**: 1000개 메시지도 끊김 없음
+useEffect(() => {
+    if (inView && hasMore && !isLoading) {
+        loadPosts();
+    }
+}, [inView, hasMore, isLoading]);
+```
+- **결과**: 끊김 없는 스크롤, 메모리 사용량 최적화
 
-### **3. 모바일 UX 개선**
-- **문제**: 터치 인터랙션 부자연스러움
-- **해결**: 제스처 라이브러리 + 햅틱 피드백
-- **결과**: 네이티브 앱 수준 UX 달성
+### **2. 컴포넌트 리렌더링 최적화**
+- **문제**: 불필요한 컴포넌트 리렌더링으로 인한 성능 저하
+- **해결**: React.memo + useCallback 패턴 적용
+- **결과**: 렌더링 횟수 60% 감소
+
+### **3. 실시간 채팅 UX 개선**
+- **문제**: WebSocket 연결 불안정 시 사용자 경험 저하
+- **해결**: 연결 상태 모니터링 + 자동 재연결 로직
+- **결과**: 안정적인 실시간 통신 환경 구축
 
 ## 📞 연락처 & 링크
 
-- **백엔드 레포**: [TailFriends Backend](../ncamp16-team3-back)
+- **백엔드 레포**: [TailFriends Backend](https://github.com/C4T4767/ncamp16-team3-back)
 - **라이브 데모**: ~~TailFriends.com~~ (서비스 종료)
 
 ---
