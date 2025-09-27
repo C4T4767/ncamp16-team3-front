@@ -20,14 +20,14 @@
 - **반려동물 프로필** 등록 및 사진 업로드
 
 ### 📍 **위치 기반 매칭**
-![펫 매칭 인터페이스](screenshots/pet-matching.png)
+![펫 매칭 인터페이스](screenshots/matching.png)
 - **실시간 위치 추적** (사용자 동의 하에)
 - **거리별 필터링** (1km ~ 10km, 4단계)
 - **매칭 알고리즘** 기반 친구 추천
 - **드래그 앤 드롭** 인터페이스
 
 ### 📱 **펫스타그램 (Pet Instagram)**
-![펫스타그램 피드](screenshots/petstagram-feed.png)
+![펫스타그램 피드](screenshots/petsta.png)
 - **무한 스크롤** 피드
 - **이미지/동영상** 업로드
 - **좋아요/댓글** 시스템
